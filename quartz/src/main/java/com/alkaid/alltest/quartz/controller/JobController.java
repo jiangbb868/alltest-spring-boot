@@ -5,14 +5,8 @@ import static org.quartz.JobBuilder.newJob;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 
 import com.alkaid.alltest.quartz.common.Resource;
-import com.alkaid.alltest.quartz.job.SimpleJobA;
-import com.alkaid.alltest.quartz.job.SimpleJobB;
-import com.alkaid.alltest.quartz.job.SimpleJobC;
 import com.alkaid.alltest.quartz.initialize.ThisApplicationRunner;
 import com.alkaid.alltest.quartz.initialize.SchedulerManager;
-import com.alkaid.alltest.quartz.job.SimpleJobD;
-import com.alkaid.alltest.quartz.job.SimpleJobE;
-import com.alkaid.alltest.quartz.job.SimpleJobF;
 import org.quartz.CronScheduleBuilder;
 import org.quartz.CronTrigger;
 import org.quartz.DateBuilder;
@@ -35,7 +29,8 @@ public class JobController {
     public String addJob(@PathVariable(value="prefix") String prefix,
                          @PathVariable(value="group") String group,
                          @PathVariable(value="count") int count,
-                         @PathVariable(value="interval") String interval) throws SchedulerException {
+                         @PathVariable(value="interval") String interval)
+            throws SchedulerException, ClassNotFoundException {
 
         if (prefix == null || prefix.isEmpty() || count <= 0) {
             return "bad request";
@@ -56,24 +51,12 @@ public class JobController {
         return "add job succeed ! prefix: " + prefix + " count: " + count;
     }
 
-    private JobDetail buildJob(Class clazz, String jobIdentity, String group) {
+    private JobDetail buildJob(Class<? extends Job> clazz, String jobIdentity, String group) {
         return newJob(clazz).withIdentity(jobIdentity, group).requestRecovery().build();
     }
 
-    private Class<? extends Job> getJobClass(String prefix) {
-        Class<? extends Job> clazz = SimpleJobA.class;
-        if (prefix.equals("B")) {
-            clazz = SimpleJobB.class;
-        } else if (prefix.equals("C")) {
-            clazz = SimpleJobC.class;
-        } else if (prefix.equals("D")) {
-            clazz = SimpleJobD.class;
-        } else if (prefix.equals("E")) {
-            clazz = SimpleJobE.class;
-        } else if (prefix.equals("F")) {
-            clazz = SimpleJobF.class;
-        }
-        return clazz;
+    private Class<? extends Job> getJobClass(String prefix) throws ClassNotFoundException {
+        return (Class<? extends Job>)Class.forName("com.alkaid.alltest.quartz.job.SimpleJob"+prefix);
     }
 
     private Trigger buildTrigger(String interval, String triggerIdentity, String group) {
