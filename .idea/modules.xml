@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/alltest-spring-boot.iml" filepath="$PROJECT_DIR$/alltest-spring-boot.iml" />
       <module fileurl="file://$PROJECT_DIR$/quartz/quartz.iml" filepath="$PROJECT_DIR$/quartz/quartz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shiro-redis/shiro-redis.iml" filepath="$PROJECT_DIR$/shiro-redis/shiro-redis.iml" />
     </modules>
   </component>
 </project>
