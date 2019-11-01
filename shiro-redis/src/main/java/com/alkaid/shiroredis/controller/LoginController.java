@@ -53,6 +53,8 @@ public class LoginController {
 
     @PostMapping(value="/logout")
     public String logout(@RequestParam("username") String username) {
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
         return "退出系统";
     }
 }

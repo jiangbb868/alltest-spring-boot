@@ -68,6 +68,7 @@ public class RedisSessionDAO extends AbstractSessionDAO {
         return sessions;
     }
 
+    @Override
     protected Serializable doCreate(Session session) {
         Serializable sessionId = this.generateSessionId(session);
         this.assignSessionId(session, sessionId);
@@ -75,6 +76,7 @@ public class RedisSessionDAO extends AbstractSessionDAO {
         return sessionId;
     }
 
+    @Override
     protected Session doReadSession(Serializable sessionId) {
         if (sessionId == null) {
             logger.error("session id is null");

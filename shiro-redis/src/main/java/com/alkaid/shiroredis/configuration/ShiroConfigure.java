@@ -2,6 +2,7 @@ package com.alkaid.shiroredis.configuration;
 
 import com.alkaid.shiroredis.cache.RedisCache;
 import com.alkaid.shiroredis.cache.RedisCacheManager;
+import com.alkaid.shiroredis.cache.RedisCachingSessionDAO;
 import com.alkaid.shiroredis.cache.RedisSessionDAO;
 import com.alkaid.shiroredis.filter.KickoutSessionControlFilter;
 import com.alkaid.shiroredis.realm.UserRealm;
@@ -9,6 +10,7 @@ import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.mgt.RememberMeManager;
 import org.apache.shiro.session.SessionListener;
 import org.apache.shiro.session.mgt.SessionManager;
+import org.apache.shiro.session.mgt.eis.CachingSessionDAO;
 import org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator;
 import org.apache.shiro.session.mgt.eis.SessionIdGenerator;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
@@ -120,10 +122,11 @@ public class ShiroConfigure {
         //setcookie()的第七个参数
         //设为true后，只能通过http访问，javascript无法访问
         //防止xss读取cookie
-        simpleCookie.setHttpOnly(true);
+        simpleCookie.setHttpOnly(false);
         simpleCookie.setPath("/");
+        simpleCookie.setSecure(false);
         //<!-- 记住我cookie生效时间30天 ,单位秒;-->
-        simpleCookie.setMaxAge(18000);
+        simpleCookie.setMaxAge(2592000);
         return simpleCookie;
     }
 
@@ -152,19 +155,19 @@ public class ShiroConfigure {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         Collection<SessionListener> listeners = new ArrayList<SessionListener>();
         //配置监听
-        sessionManager.setGlobalSessionTimeout(1800);
-        sessionManager.setDeleteInvalidSessions(false);
+        sessionManager.setGlobalSessionTimeout(1800000);
+        sessionManager.setDeleteInvalidSessions(true);
         sessionManager.setSessionValidationSchedulerEnabled(true);
         sessionManager.setSessionIdCookieEnabled(true);
 
-        SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
+        SimpleCookie simpleCookie = new SimpleCookie("sid");
         simpleCookie.setPath("/");
-        simpleCookie.setHttpOnly(true);
+        simpleCookie.setHttpOnly(false);
         simpleCookie.setSecure(false);
-        simpleCookie.setMaxAge(1800);
+        simpleCookie.setMaxAge(-1);
         sessionManager.setSessionIdCookie(simpleCookie);
 
-        RedisSessionDAO redisSessionDAO = new RedisSessionDAO();
+        RedisCachingSessionDAO redisSessionDAO = new RedisCachingSessionDAO();
         RedisCache redisCache = new RedisCache(redisTemplate);
         redisCache.setName(RedisCacheManager.SHIRO_TOKEN_KEY);
         redisSessionDAO.setRedisCache(redisCache);
