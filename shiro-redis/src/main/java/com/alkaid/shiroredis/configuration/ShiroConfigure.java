@@ -3,7 +3,6 @@ package com.alkaid.shiroredis.configuration;
 import com.alkaid.shiroredis.cache.RedisCache;
 import com.alkaid.shiroredis.cache.RedisCacheManager;
 import com.alkaid.shiroredis.cache.RedisSessionDAO;
-import com.alkaid.shiroredis.common.Resource;
 import com.alkaid.shiroredis.filter.KickoutSessionControlFilter;
 import com.alkaid.shiroredis.realm.UserRealm;
 import org.apache.shiro.cache.CacheManager;
@@ -20,7 +19,6 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.SimpleCookie;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -57,7 +55,6 @@ public class ShiroConfigure {
         filterChainDefinitionMap.put("/**", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
-
     }
 
     @Bean

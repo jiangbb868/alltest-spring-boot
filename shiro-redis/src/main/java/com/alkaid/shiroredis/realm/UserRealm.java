@@ -21,8 +21,8 @@ public class UserRealm extends AuthorizingRealm {
         String username = (String) SecurityUtils.getSubject().getPrincipal();
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         Set<String> stringSet = new HashSet<>();
-        stringSet.add("user:show");
-        stringSet.add("user:admin");
+        stringSet.add("user:list");
+        stringSet.add("user:get");
         info.setStringPermissions(stringSet);
         return info;
     }
