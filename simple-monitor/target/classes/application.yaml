@@ -1,0 +1,14 @@
+server:
+  port: 8080
+metric:
+  interval: 60
+  cacheSize: 12
+  net:
+    address: 192.168.1.103
+  connectionConfigList:
+    - address: 192.168.1.103
+      port: 8080
+      status: ESTABLISHED
+    - address: 127.0.0.1
+      port: 5432
+      status: ESTABLISHED

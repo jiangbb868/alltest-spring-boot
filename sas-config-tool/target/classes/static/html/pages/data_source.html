@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>数据源配置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+          charset="utf-8" />
+
+    <script>
+        $(function() {
+            var oTable = new TableInit();
+            oTable.Init();
+
+            //首页
+            $('#home').on('click', function() {
+                location.reload();
+            });
+
+            //添加
+            $('#add').on('click', function() {
+                layer.open({
+                   type : 1,
+                   skin : 'layui-layer-lan',
+                   area : [ '800px', '500px' ],
+                   shadeClose : true, //点击遮罩关闭
+                   title : '添加数据源',
+                   content : $('#bidderDiv')
+               });
+
+
+                $('#dataSource').val("");
+                $('#loader').val("");
+                $('#config').val("");
+                initLookupSelect("dataSourceType", "b7ae904e-8392-11e9-ace8-cbe2a0556a26");
+                $("#dilivery").off("click").on("click", function() {
+                    var record = {
+                        dataSource : $('#dataSource').val(),
+                        dataSourceType : $('#dataSourceType').val(),
+                        loader : $('#loader').val(),
+                        config : $('#config').val()
+                    }
+                    $.ajax({
+                       type : "POST",
+                       url : "/sas/datasource/add",
+                       datatype : "text",
+                       contentType : "application/json",
+                       data : JSON.stringify(record),
+                       async : true,
+                       success : function(result) {
+                           layer.alert('添加成功', {
+                               icon : 6
+                           });
+                       },
+                       error : function(result) {
+                           layer.alert('添加失败', {
+                               icon : 5
+                           });
+                       }
+                   })
+                });
+            });
+
+            //查询
+            $('#searchByid').on(
+                'click',
+                function() {
+                    layer.prompt({
+                                     title : '数据源查询'
+                                 }, function(val, index) {
+                        layer.close(index);
+                        $.ajax({
+                           type : "get",
+                           datatype : "json",
+                           url : "/sas/datasource/get",
+                           data : "id=" + val,
+                           contentType : "application/x-www-form-urlencoded",
+                           async : false,
+                           success : function(result) {
+                               var r = JSON.stringify(result);
+                               layer.alert("数据源:" + result["dataSource"] + " 类型:"
+                                   + result["dataSourceType"] + " 加载器:"
+                                   + result["loader"] + " 配置:"
+                                   + result["config"], {
+                                        title : '查询结果'
+                                    });
+                           },
+                           error : function(result) {
+                               layer.alert('查找失败', {
+                                   icon : 5
+                               });
+                           }
+                       });
+                    });
+                })
+        });
+
+        var TableInit = function() {
+            var oTableInit = new Object();
+            oTableInit.Init = function() {
+                $('#ArbetTable').bootstrapTable({
+                    url : '/sas/datasource/list',
+                    method : 'get',
+                    toolbar: '#toolbar',
+                    striped : true,
+                    cache : false,
+                    pagination : true,
+                    sortable : false,
+                    queryParams : oTableInit.queryParams,
+                    showToggle : true,
+                    sidePagination : "server",
+                    pageList : [ 4, 10 ],
+                    pageNumber : 1,
+                    pageSize : 4,
+                    showColunms : true,
+                    clickToSelect : true,
+                    showRefresh : true,
+                    search : false,
+                    uniqueId : "id",
+                    contentType : "application/x-www-form-urlencoded",
+                    columns : [{
+                        field : 'dataSource',
+                        title : '数据源',
+                        colspan: 1,
+                        width: 80
+                    }, {
+                        field : 'dataSourceType',
+                        title : '类型',
+                        colspan: 1,
+                        width: 30
+                    }, {
+                        field : 'loader',
+                        title : '加载器',
+                        colspan: 1,
+                        width: 30
+                    }, {
+                        field : 'config',
+                        title : '配置',
+                        colspan: 1,
+                        width: 300
+                    }, {
+                        field : 'operate',
+                        title : '操作',
+                        colspan: 1,
+                        width: 80,
+                        events : operateEvents,
+                        formatter : operateFormatter
+                    } ]
+                });
+            };
+            oTableInit.queryParams = function(params) {
+                var temp = {
+                    limit : params.limit,
+                    offset : params.offset
+                };
+                return temp;
+            };
+            return oTableInit;
+        };
+
+        function operateFormatter(value, row, index) {
+            return [ '<button class="btn btn-sm btn-warning" id="edit">编辑</button>',
+                     '<button class="btn btn-sm btn-danger" id="delete">删除</button>' ]
+                .join(" ");
+        }
+
+        window.operateEvents = {
+            "click #delete" : function(e, value, row, index) {
+                layer.msg("确认删除?", {
+                    time : 0,
+                    icon : 7,
+                    btn : [ "是", "否" ],
+                    yes : function(index) {
+                        layer.close(index);
+                        $.ajax({
+                           type : "POST",
+                           url : "/sas/datasource/delete",
+                           data : "id=" + row["id"],
+                           contentType : "application/x-www-form-urlencoded",
+                           async : false,
+                           success : function(result) {
+                               location.reload();
+                           },
+                           error : function(result) {
+                               layer.alert('删除失败', {
+                                   icon : 5
+                               });
+                           }
+                       });
+
+                    }
+                });
+            },
+
+            "click #edit" : function(e, value, row, index) {
+                layer.open({
+                   type : 1,
+                   area : [ '900px', '540px' ],
+                   shadeClose : true, //点击遮罩关闭
+                   title : '修改数据源',
+                   content : $('#bidderDiv')
+               });
+                $("#id").val(row["id"]);
+                $("#dataSource").val(row["dataSource"]);
+                $("#loader").val(row["loader"]);
+                $("#config").val(row["config"]);
+                initLookupSelect("dataSourceType", "b7ae904e-8392-11e9-ace8-cbe2a0556a26");
+                $("#dataSourceType").val(row["dataSourceType"]);
+                $("#dilivery").off("click").on("click", function() {
+                    var record = {
+                        id : row["id"],
+                        dataSource : $('#dataSource').val(),
+                        dataSourceType : $('#dataSourceType').val(),
+                        loader : $('#loader').val(),
+                        config : $('#config').val()
+                    }
+                    //Ajax调用处理
+                    $.ajax({
+                       type : "POST",
+                       url : "/sas/datasource/update",
+                       datatype : "text",
+                       contentType : "application/json",
+                       data : JSON.stringify(record),
+                       async : true,
+                       success : function(result) {
+                           layer.alert('修改成功', {
+                               icon : 6
+                           });
+                       },
+                       error : function(result) {
+                           layer.alert('修改失败', {
+                               icon : 5
+                           });
+                       }
+                   })
+                });
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+<div id="bidderDiv" style="display: none; ">
+    <div style="margin:20px">
+    <form role="form">
+        <div class="form-group">
+            <label for="dataSource">数据源名</label>
+            <input type="text" class="form-control" id="dataSource" placeholder="请输入数据源名">
+        </div>
+        <div class="form-group">
+            <label for="dataSourceType">数据源类型</label>
+            <select class="selectpicker form-control" id="dataSourceType" name="dataSourceType">
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="loader">加载器</label>
+            <input type="text" class="form-control" id="loader" placeholder="请输入加载器">
+        </div>
+        <div class="form-group">
+            <label for="config">配置</label>
+            <textarea class="form-control" id="config" placeholder="请输入配置"/>
+        </div>
+        <div align="center" >
+            <button type="submit" id="dilivery" style="width: 200px;" class="btn btn-primary btn-block">提交</button>
+        </div>
+    </form>
+    </div>
+</div>
+
+<div class="container">
+
+    <h3 align="center">数据源配置</h3>
+    <div class="btn-group">
+        <button id="home" type="button" class="btn btn-sm btn-primary">首页</button>
+        <button id="add" type="button" class="btn btn-sm btn-primary">添加数据源</button>
+        <button id="searchByid" type="button" class="btn btn-sm btn-primary">按名称查找</button>
+    </div>
+
+    <div id="ccT">
+        <table id="ArbetTable" class="table  table-striped" style="word-break:break-all; word-wrap:break-all; table-layout: fixed;">
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

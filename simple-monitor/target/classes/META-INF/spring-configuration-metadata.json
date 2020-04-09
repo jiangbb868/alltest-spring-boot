@@ -1,0 +1,38 @@
+{
+  "groups": [
+    {
+      "name": "",
+      "type": "com.alkaid.monitor.MonitorApplication",
+      "sourceType": "com.alkaid.monitor.MonitorApplication"
+    },
+    {
+      "name": "metric",
+      "type": "com.alkaid.monitor.configure.MetricConfig",
+      "sourceType": "com.alkaid.monitor.configure.MetricConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "metric.cache-size",
+      "type": "java.lang.Integer",
+      "sourceType": "com.alkaid.monitor.configure.MetricConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "metric.connection-config-list",
+      "type": "java.util.List<java.util.Map<java.lang.String,java.lang.String>>",
+      "sourceType": "com.alkaid.monitor.configure.MetricConfig"
+    },
+    {
+      "name": "metric.interval",
+      "type": "java.lang.String",
+      "sourceType": "com.alkaid.monitor.configure.MetricConfig"
+    },
+    {
+      "name": "metric.net",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.alkaid.monitor.configure.MetricConfig"
+    }
+  ],
+  "hints": []
+}

@@ -6,14 +6,32 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="elk" />
+        <module name="jwt" />
         <module name="quartz" />
+        <module name="sas-config-tool" />
         <module name="shiro-redis" />
+        <module name="simple-monitor" />
+      </profile>
+      <profile name="Annotation profile for alltest-spring-boot" enabled="true">
+        <sourceOutputDir name="../quartz/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../quartz/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="kafka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="alltest-spring-boot" target="1.8" />
+      <module name="elk" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="jwt" target="1.8" />
+      <module name="kafka" target="1.8" />
       <module name="quartz" target="1.8" />
+      <module name="sas-config-tool" target="1.8" />
       <module name="shiro-redis" target="1.8" />
+      <module name="simple-monitor" target="1.8" />
+      <module name="spring-cloud" target="1.8" />
+      <module name="spring-cloud-microservice" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

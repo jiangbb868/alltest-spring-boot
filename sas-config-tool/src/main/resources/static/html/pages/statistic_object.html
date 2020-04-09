@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>统计对象配置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+          charset="utf-8" />
+
+    <script>
+        var statisticObjectType = "e5cc584a-8391-11e9-acda-dfa5761580b6";
+        var dataSourceCiType = "d81a4a90-839b-11e9-b846-23d922fea2ec";
+        var dataSourceField = "dataSource";
+        $(function() {
+            var oTable = new TableInit();
+            oTable.Init();
+
+            //首页
+            $('#home').on('click', function() {
+                location.reload();
+            });
+
+            //添加
+            $('#add').on('click', function() {
+                layer.open({
+                               type : 1,
+                               skin : 'layui-layer-lan',
+                               area : [ '800px', '500px' ],
+                               shadeClose : true, //点击遮罩关闭
+                               title : '添加统计对象',
+                               content : $('#bidderDiv')
+                           });
+
+
+                $('#name').val("");
+                $('#displayName').val("");
+                $('#config').val("");
+                initReferenceSelect("dataSource", dataSourceCiType, dataSourceField);
+                initSelectOptions("statisticObjectType", statisticObjectType);
+                $("#dilivery").off("click").on("click", function() {
+                    var record = {
+                        name : $('#name').val(),
+                        statisticObjectType : $('#statisticObjectType').val(),
+                        dataSource : $('#dataSource').val(),
+                        displayName : $('#displayName').val(),
+                        config : $('#config').val()
+                    }
+                    $.ajax({
+                               type : "POST",
+                               url : "/sas/object/add",
+                               datatype : "text",
+                               contentType : "application/json",
+                               data : JSON.stringify(record),
+                               async : true,
+                               success : function(result) {
+                                   layer.alert('添加成功', {
+                                       icon : 6
+                                   });
+                               },
+                               error : function(result) {
+                                   layer.alert('添加失败', {
+                                       icon : 5
+                                   });
+                               }
+                           })
+                });
+            });
+
+            //查询
+            $('#searchByid').on(
+                'click',
+                function() {
+                    layer.prompt({
+                                     title : '统计对象查询'
+                                 }, function(val, index) {
+                        layer.close(index);
+                        $.ajax({
+                                   type : "get",
+                                   datatype : "json",
+                                   url : "/sas/object/get",
+                                   data : "id=" + val,
+                                   contentType : "application/x-www-form-urlencoded",
+                                   async : false,
+                                   success : function(result) {
+                                       var r = JSON.stringify(result);
+                                       layer.alert("名称:" + result["name"] + " 统计对象类型:"
+                                                   + result["statisticObjectType"] + " 中文名:"
+                                                   + result["displayName"] + " 配置:"
+                                                   + result["config"], {
+                                                                           title : '查询结果'
+                                                                       });
+                                   },
+                                   error : function(result) {
+                                       layer.alert('查找失败', {
+                                           icon : 5
+                                       });
+                                   }
+                               });
+                    });
+                })
+        });
+
+        var TableInit = function() {
+            var oTableInit = new Object();
+            oTableInit.Init = function() {
+                $('#ArbetTable').bootstrapTable({
+                url : '/sas/object/list',
+                method : 'get',
+                toolbar: '#toolbar',
+                striped : true,
+                cache : false,
+                pagination : true,
+                sortable : false,
+                queryParams : oTableInit.queryParams,
+                showToggle : true,
+                sidePagination : "server",
+                pageList : [ 4, 10 ],
+                pageNumber : 1,
+                pageSize : 4,
+                showColunms : true,
+                clickToSelect : true,
+                showRefresh : true,
+                search : false,
+                uniqueId : "id",
+                contentType : "application/x-www-form-urlencoded",
+                columns : [{
+                    field : 'name',
+                    title : '名称',
+                    colspan: 1,
+                    width: 80
+                }, {
+                    field : 'displayName',
+                    title : '中文名称',
+                    colspan: 1,
+                    width: 40
+                }, {
+                    field : 'dataSource',
+                    title : '数据源',
+                    colspan: 1,
+                    width: 30
+                }, {
+                    field : 'statisticObjectType',
+                    title : '统计对象类型',
+                    colspan: 1,
+                    width: 30
+                }, {
+                    field : 'config',
+                    title : '配置',
+                    colspan: 1,
+                    width: 300
+                }, {
+                    field : 'operate',
+                    title : '操作',
+                    colspan: 1,
+                    width: 70,
+                    events : operateEvents,
+                    formatter : operateFormatter
+                } ]
+            });
+            };
+            oTableInit.queryParams = function(params) {
+                var temp = {
+                    limit : params.limit,
+                    offset : params.offset
+                };
+                return temp;
+            };
+            return oTableInit;
+        };
+
+        function operateFormatter(value, row, index) {
+            return [ '<button class="btn btn-sm btn-warning" id="edit">编辑</button>',
+                     '<button class="btn btn-sm btn-danger" id="delete">删除</button>' ]
+                .join(" ");
+        }
+
+        /**
+         * 动态生成select选项
+         * @param selectId
+         * @param parentId
+         * @returns
+         */
+        function initSelectOptions(selectId, lookupType) {
+            var selectObj = $("#" + selectId);
+            $.ajax({
+                       url : "/sas/lookup/list",
+                       async : false,
+                       type : "GET",
+                       data : "lookupType=" + lookupType,
+                       contentType : "application/x-www-form-urlencoded",
+                       success : function(result) {
+                           if (result.success) {
+                               var lookups = result.data;
+                               selectObj.find("option:not(:first)").remove();
+                               for (var i in lookups) {
+                                   var lookup = lookups[i];
+                                   var optionValue = lookup.name;
+                                   var optionText = lookup.displayName;
+                                   selectObj.append(new Option(optionText, optionValue));
+                               }
+
+                               // 刷新select
+                               selectObj.selectpicker('refresh');
+                           } else {
+                               toastr.error('获取['+ lookupType + ']信息失败，原因：' + result.errorMessage);
+                           }
+                       },
+                       error : function(result) {
+                           toastr.error('获取['+ lookupType + ']信息失败，原因：' + result.errorMessage);
+                       }
+                   });// ajax
+        }
+
+
+        window.operateEvents = {
+            "click #delete" : function(e, value, row, index) {
+                layer.msg("确认删除?", {
+                    time : 0,
+                    icon : 7,
+                    btn : [ "是", "否" ],
+                    yes : function(index) {
+                        layer.close(index);
+                        $.ajax({
+                                   type : "POST",
+                                   url : "/sas/object/delete",
+                                   data : "id=" + row["id"],
+                                   contentType : "application/x-www-form-urlencoded",
+                                   async : false,
+                                   success : function(result) {
+                                       location.reload();
+                                   },
+                                   error : function(result) {
+                                       layer.alert('删除失败', {
+                                           icon : 5
+                                       });
+                                   }
+                               });
+
+                    }
+                });
+            },
+
+            "click #edit" : function(e, value, row, index) {
+                layer.open({
+                               type : 1,
+                               area : [ '900px', '540px' ],
+                               shadeClose : true, //点击遮罩关闭
+                               title : '修改统计对象',
+                               content : $('#bidderDiv')
+                           });
+                $("#id").val(row["id"]);
+                $("#name").val(row["name"]);
+                $("#displayName").val(row["displayName"]);
+                $("#config").val(row["config"]);
+                initReferenceSelect("dataSource", dataSourceCiType, dataSourceField);
+                $("#dataSource").val(row["dataSource"]);
+                initSelectOptions("statisticObjectType", statisticObjectType);
+                $("#statisticObjectType").val(row["statisticObjectType"]);
+                $("#dilivery").off("click").on("click", function() {
+                    var record = {
+                        id : row["id"],
+                        name : $('#name').val(),
+                        statisticObjectType : $('#statisticObjectType').val(),
+                        displayName : $('#displayName').val(),
+                        config : $('#config').val(),
+                        dataSource : $('#dataSource').val(),
+                    }
+                    //Ajax调用处理
+                    $.ajax({
+                               type : "POST",
+                               url : "/sas/object/update",
+                               datatype : "text",
+                               contentType : "application/json",
+                               data : JSON.stringify(record),
+                               async : true,
+                               success : function(result) {
+                                   layer.alert('修改成功', {
+                                       icon : 6
+                                   });
+                               },
+                               error : function(result) {
+                                   layer.alert('修改失败', {
+                                       icon : 5
+                                   });
+                               }
+                           })
+                });
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+<div id="bidderDiv" style="display: none; ">
+    <div style="margin:20px">
+        <form role="form">
+            <div class="form-group">
+                <label for="name">统计对象名</label>
+                <input type="text" class="form-control" id="name" placeholder="请输入统计对象名">
+            </div>
+            <div class="form-group">
+                <label for="displayName">中文名</label>
+                <input type="text" class="form-control" id="displayName" placeholder="请输入中文名">
+            </div>
+            <div class="form-group">
+                <label for="dataSource">数据源</label>
+                <select class="selectpicker form-control" id="dataSource" name="dataSource">
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="statisticObjectType">统计对象类型</label>
+                <select class="selectpicker form-control" id="statisticObjectType" name="statisticObjectType">
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="config">配置</label>
+                <textarea class="form-control" id="config" placeholder="请输入配置"/>
+            </div>
+            <div align="center" >
+                <button type="submit" id="dilivery" style="width: 200px;" class="btn btn-primary btn-block">提交</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+
+    <h3 align="center">统计对象配置</h3>
+    <div class="btn-group">
+        <button id="home" type="button" class="btn btn-sm btn-primary">首页</button>
+        <button id="add" type="button" class="btn btn-sm btn-primary">添加统计对象</button>
+        <button id="searchByid" type="button" class="btn btn-sm btn-primary">按名称查找</button>
+    </div>
+
+    <div id="ccT">
+        <table id="ArbetTable" class="table  table-striped" style="word-break:break-all; word-wrap:break-all; table-layout: fixed;">
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

@@ -3,8 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/alltest-spring-boot.iml" filepath="$PROJECT_DIR$/alltest-spring-boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/elk/elk.iml" filepath="$PROJECT_DIR$/elk/elk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jwt/jwt.iml" filepath="$PROJECT_DIR$/jwt/jwt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kafka/kafka.iml" filepath="$PROJECT_DIR$/kafka/kafka.iml" />
       <module fileurl="file://$PROJECT_DIR$/quartz/quartz.iml" filepath="$PROJECT_DIR$/quartz/quartz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sas-config-tool/sas-config-tool.iml" filepath="$PROJECT_DIR$/sas-config-tool/sas-config-tool.iml" />
       <module fileurl="file://$PROJECT_DIR$/shiro-redis/shiro-redis.iml" filepath="$PROJECT_DIR$/shiro-redis/shiro-redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simple-monitor/simple-monitor.iml" filepath="$PROJECT_DIR$/simple-monitor/simple-monitor.iml" />
     </modules>
   </component>
 </project>

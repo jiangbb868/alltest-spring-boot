@@ -11,6 +11,12 @@
     <modules>
         <module>quartz</module>
         <module>shiro-redis</module>
+        <module>spring-cloud-microservice</module>
+        <module>elk</module>
+        <module>kafka</module>
+        <module>simple-monitor</module>
+        <module>sas-config-tool</module>
+        <module>jwt</module>
     </modules>
 
     <parent>
