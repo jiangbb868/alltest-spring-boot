@@ -1,5 +1,6 @@
 
-function PageObject(data) {
+function PageObject(_data) {
+
 
     this.data = {
         "title":"数据源配置",
@@ -9,18 +10,20 @@ function PageObject(data) {
         "deleteURL":"/sas/datasource/delete",
         "queryURL":"/sas/datasource/list",
         "fields":[
-            {"name":"数据源名", "code":"dataSource", "type":"text", "width":80, "param":""},
-            {"name":"数据源类型", "code":"dataSourceType", "type":"select", "width":30, "selectType":"b7ae904e-8392-11e9-ace8-cbe2a0556a26"},
-            {"name":"加载器", "code":"loader", "type":"text", "width":30, "param":""},
-            {"name":"配置", "code":"config", "type":"text", "width":300, "param":""}
+            {"name":"数据源名", "code":"dataSource", "type":"text", "showInTable":true,"width":80},
+            {"name":"数据源类型", "code":"dataSourceType", "type":"select","showInTable":true, "width":30, "selectType":"lookup","selectObject":"b7ae904e-8392-11e9-ace8-cbe2a0556a26"},
+            {"name":"加载器", "code":"loader", "type":"text", "showInTable":true,"width":30},
+            {"name":"配置", "code":"config", "type":"text","showInTable":true, "width":300}
     ]};
+
+    var pageData = _data;
 
     this.initBody = function initBody() {
 
         var form = "<div id=\"bidderDiv\" style=\"display: none; \">\n"
                    + "    <div style=\"margin:20px\">\n"
                    + "    <form role=\"form\">";
-        var fields = this.data["fields"];
+        var fields = pageData["fields"];
         for (var i = 0; i < fields.length; i ++) {
             form += "<div class=\"form-group\">\n"
                     + " <label for=\"dataSource\">"+fields[i]["name"]+"</label>";
@@ -33,6 +36,9 @@ function PageObject(data) {
             }
             form += "</div>";
         }
+        form += "        <div align=\"center\" >\n"
+                + "            <button type=\"submit\" id=\"dilivery\" style=\"width: 200px;\" class=\"btn btn-primary btn-block\">提交</button>\n"
+                + "        </div>";
         form += "    </form>\n"
                 + "    </div>\n"
                 + "</div>\n";
@@ -40,10 +46,10 @@ function PageObject(data) {
         var html = form
                + "<div class=\"container\">\n"
                + "\n"
-               + "    <h3 align=\"center\">"+this.data["title"]+"</h3>\n"
+               + "    <h3 align=\"center\">"+pageData["title"]+"</h3>\n"
                + "    <div class=\"btn-group\">\n"
                + "        <button id=\"home\" type=\"button\" class=\"btn btn-sm btn-primary\">首页</button>\n"
-               + "        <button id=\"add\" type=\"button\" class=\"btn btn-sm btn-primary\">添加"+this.data["object"]+"</button>\n"
+               + "        <button id=\"add\" type=\"button\" class=\"btn btn-sm btn-primary\">添加"+pageData["object"]+"</button>\n"
                + "        <button id=\"searchByid\" type=\"button\" class=\"btn btn-sm btn-primary\">按名称查找</button>\n"
                + "    </div>\n"
                + "\n"
@@ -62,15 +68,19 @@ function PageObject(data) {
           skin : 'layui-layer-lan',
           area : [ '800px', '500px' ],
           shadeClose : true, //点击遮罩关闭
-          title : '添加'+this.data["object"],
+          title : '添加'+pageData["object"],
           content : $('#bidderDiv')
       });
 
-       var fields = this.data["fields"];
+       var fields = pageData["fields"];
        for (var i = 0; i < fields.length; i ++) {
            var field = fields[i];
            if (field["type"] === "select") {
-               initLookupSelect(field["code"], field["selectType"]);
+               if (field["selectType"] === "lookup") {
+                   initLookupSelect(field["code"], field["selectObject"]);
+               } else if (field["selectType"] === "reference") {
+                   initReferenceSelect(field["code"], field["selectObject"], field["selectField"]);
+               }
            } else {
                $("#"+field["code"]).val("");
            }
@@ -78,14 +88,14 @@ function PageObject(data) {
 
        $("#dilivery").off("click").on("click", function() {
            var record = {};
-           var fields = this.data["fields"];
+           var fields = pageData["fields"];
            for (var i = 0; i < fields.length; i ++) {
                var field = fields[i];
                record[field["code"]] = $("#"+field["code"]).val();
            }
            $.ajax({
               type : "POST",
-              url : this.data["addURL"],
+              url : pageData["addURL"],
               datatype : "text",
               contentType : "application/json",
               data : JSON.stringify(record),
@@ -104,20 +114,26 @@ function PageObject(data) {
        });
    };
 
-   this.onUpdate = function onUpdate(e, value, row, index) {
+   function onUpdate(data) {
+       pageData = data;
+       this.update = function (e, value, row, index) {
         layer.open({
                type : 1,
                area : [ '900px', '540px' ],
                shadeClose : true, //点击遮罩关闭
-               title : '修改'+this.data["object"],
+               title : '修改'+pageData["object"],
                content : $('#bidderDiv')
            });
-       var fields = this.data["fields"];
+       var fields = pageData["fields"];
        $("#id").val(row["id"]);
        for (var i = 0; i < fields.length; i ++) {
            var field = fields[i];
            if (field["type"] === "select") {
-               initLookupSelect(field["code"], field["selectType"]);
+               if (field["selectType"] === "lookup") {
+                   initLookupSelect(field["code"], field["selectObject"]);
+               } else if (field["selectType"] === "reference") {
+                   initReferenceSelect(field["code"], field["selectObject"], field["selectField"]);
+               }
            }
            $("#"+field["code"]).val(row[field["code"]]);
        }
@@ -126,7 +142,7 @@ function PageObject(data) {
             var record = {
                 id : row["id"]
             }
-            var fields = this.data["fields"];
+            var fields = pageData["fields"];
             for (var i = 0; i < fields.length; i ++) {
                 var field = fields[i];
                 record[field["code"]] = $("#"+field["code"]).val();
@@ -135,7 +151,7 @@ function PageObject(data) {
             //Ajax调用处理
             $.ajax({
                type : "POST",
-               url : this.data["updateURL"],
+               url : pageData["updateURL"],
                datatype : "text",
                contentType : "application/json",
                data : JSON.stringify(record),
@@ -152,10 +168,12 @@ function PageObject(data) {
                }
            })
         });
+       };
+   }
 
-   };
-
-   this.onDelete = function onDelete(e, value, row, index) {
+   function onDelete(data) {
+       pageData = data;
+       this.delete = function (e, value, row, index) {
        layer.msg("确认删除?", {
            time : 0,
            icon : 7,
@@ -164,7 +182,7 @@ function PageObject(data) {
                layer.close(index);
                $.ajax({
                   type : "POST",
-                  url : this.data["deleteURL"],
+                  url : pageData["deleteURL"],
                   data : "id=" + row["id"],
                   contentType : "application/x-www-form-urlencoded",
                   async : false,
@@ -180,23 +198,37 @@ function PageObject(data) {
 
            }
        });
-   };
+       };
+   }
+
+   this.initEvent = function () {
+       var oEventInit = new Object();
+       oEventInit.data = pageData;
+       oEventInit.onAdd = this.onAdd;
+       oEventInit.Init = function() {
+           $("#add").on("click", this.onAdd);
+       }
+       return oEventInit;
+   }
 
    this.initTable = function initTable() {
        var oTableInit = new Object();
-       oTableInit.data = this.data;
+       oTableInit.data = pageData;
        oTableInit.Init = function() {
            var columns = [];
            var i = 0;
-           var fields = this.data["fields"];
+           var fields = pageData["fields"];
            for (i = 0; i < fields.length; i ++) {
                var field = fields[i];
+               if (field["showInTable"] === false) {
+                   continue;
+               }
                var column = {};
                column["field"] = field["code"];
                column["title"] = field["name"];
                column["colspan"] = 1;
                column["width"] = field["width"];
-               columns[i] = column;
+               columns[columns.length] = column;
            }
            var operate = {
                field : 'operate',
@@ -206,10 +238,10 @@ function PageObject(data) {
                events : operateEvents,
                formatter : operateFormatter
            };
-           columns[i] = operate;
+           columns[columns.length] = operate;
 
            $('#ArbetTable').bootstrapTable({
-               url : this.data["queryURL"],
+               url : pageData["queryURL"],
                method : 'get',
                toolbar: '#toolbar',
                striped : true,
@@ -247,58 +279,16 @@ function PageObject(data) {
             .join(" ");
     }
 
-    window.operateEvents = {
+    var operateEvents = {
         "click #delete" : function(e, value, row, index) {
-            return new this.onDelete(e,value,row,index);
+            var deletor = new onDelete(operateEvents.data);
+            deletor.delete(e,value,row,index);
         },
         "click #edit" : function(e, value, row, index) {
-            layer.open({
-               type : 1,
-               area : [ '900px', '540px' ],
-               shadeClose : true, //点击遮罩关闭
-               title : '修改'+this.data["object"],
-               content : $('#bidderDiv')
-           });
-            var fields = this.data["fields"];
-            $("#id").val(row["id"]);
-            for (var i = 0; i < fields.length; i ++) {
-                var field = fields[i];
-                if (field["type"] === "select") {
-                    initLookupSelect(field["code"], field["selectType"]);
-                }
-                $("#"+field["code"]).val(row[field["code"]]);
-            }
-
-            $("#dilivery").off("click").on("click", function() {
-                var record = {
-                    id : row["id"]
-                }
-                var fields = this.data["fields"];
-                for (var i = 0; i < fields.length; i ++) {
-                    var field = fields[i];
-                    record[field["code"]] = $("#"+field["code"]).val();
-                }
-
-                //Ajax调用处理
-                $.ajax({
-                   type : "POST",
-                   url : this.data["updateURL"],
-                   datatype : "text",
-                   contentType : "application/json",
-                   data : JSON.stringify(record),
-                   async : true,
-                   success : function(result) {
-                       layer.alert('修改成功', {
-                           icon : 6
-                       });
-                   },
-                   error : function(result) {
-                       layer.alert('修改失败', {
-                           icon : 5
-                       });
-                   }
-               })
-            });
-        }
-    }
+            var updator = new onUpdate(operateEvents.data);
+            updator.update(e,value,row,index);
+        },
+        data : pageData
+    };
+    window.operateEvents = operateEvents;
 }

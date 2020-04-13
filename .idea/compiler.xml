@@ -8,16 +8,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="elk" />
         <module name="jwt" />
-        <module name="quartz" />
+        <module name="kafka" />
         <module name="sas-config-tool" />
         <module name="shiro-redis" />
         <module name="simple-monitor" />
       </profile>
       <profile name="Annotation profile for alltest-spring-boot" enabled="true">
-        <sourceOutputDir name="../quartz/target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../quartz/target/generated-test-sources/test-annotations" />
+        <sourceOutputDir name="../kafka/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../kafka/target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="kafka" />
+        <module name="quartz" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
