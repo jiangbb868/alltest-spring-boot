@@ -1,7 +1,8 @@
     var ciType = [
         ["d81a4a90-839b-11e9-b846-23d922fea2ec","/sas/datasource/list"],
         ["4eec2496-8391-11e9-9efc-73158419bc0c","/sas/object/list"],
-        ["0c8e2cea-8394-11e9-a2a2-bbce877b27f0","/sas/indicator/list"]
+        ["0c8e2cea-8394-11e9-a2a2-bbce877b27f0","/sas/indicator/list"],
+        ["sasDimRelation","/sas/dimRelation/list"]
     ];
 
     function findURL(ciTypeId) {

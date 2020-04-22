@@ -31,17 +31,17 @@
         </javaClientGenerator>
         <!--生成对应表及类名-->
         <!--<table tableName="big_table" domainObjectName="BigTable" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <table tableName="sas_statistic_item"/>
-        <table tableName="sas_statistic_object"/>
-        <table tableName="sas_statistic_dimension"/>
-        <table tableName="sas_statistic_dim_relation"/>
-        <table tableName="sas_statistic_indicator"/>
+        <!--table tableName="sas_statistic_item"/>
+        <table tableName="sas_statistic_object"/-->
+        <table tableName="sas_dimension"/>
+        <table tableName="sas_dim_relation"/>
+        <!--table tableName="sas_statistic_indicator"/>
         <table tableName="sas_statistic_item_time"/>
         <table tableName="sas_statistic_obj_dim_relation"/>
         <table tableName="sas_data_source"/>
         <table tableName="ci_type"/>
         <table tableName="ci_attrbute"/>
         <table tableName="ci_lookup_type"/>
-        <table tableName="ci_lookup"/>
+        <table tableName="ci_lookup"/-->
     </context>
 </generatorConfiguration>

@@ -3,13 +3,11 @@ package com.its.itone.sas.config.service;
 import com.its.itone.sas.config.dao.mapper.SasDataSourceMapper;
 import com.its.itone.sas.config.dao.pojo.SasDataSource;
 import com.its.itone.sas.config.dao.pojo.SasDataSourceExample;
-import com.its.itone.sas.config.dao.pojo.SasDataSource;
 import com.its.itone.sas.config.util.CiTypeUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 

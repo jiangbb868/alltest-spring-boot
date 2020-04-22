@@ -38,7 +38,7 @@ public class SasObjectServiceImpl implements SasObjectService {
 
     public void add(SasStatisticObject statisticObject) {
         statisticObject.setId(UUID.randomUUID().toString());
-        statisticObject.setType(CiTypeUtils.CITYPE_DATA_SOURCE);
+        statisticObject.setType(CiTypeUtils.CITYPE_STATISTIC_OBJECT);
         mapper.insertSelective(statisticObject);
     }
 }
