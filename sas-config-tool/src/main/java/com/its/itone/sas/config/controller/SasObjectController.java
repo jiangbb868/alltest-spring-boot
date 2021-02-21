@@ -34,24 +34,24 @@ public class SasObjectController {
     @PostMapping(value="/add")
     public String add(@RequestBody SasStatisticObject statisticObject) throws Exception {
         sasObjectService.add(statisticObject);
-        return "sucess";
+        return "success";
     }
 
     @PostMapping(value="/update")
     public String update(@RequestBody SasStatisticObject statisticObject) throws Exception {
         sasObjectService.update(statisticObject);
-        return "sucess";
+        return "success";
     }
 
     @PostMapping(value="/delete")
     public String delete(@RequestParam(value="id") String id) throws Exception {
         sasObjectService.delete(id);
-        return "sucess";
+        return "success";
     }
 
     @GetMapping(value="/get")
     public String get(@RequestParam(value="id") String id) throws Exception {
         sasObjectService.get(id);
-        return "sucess";
+        return "success";
     }
 }

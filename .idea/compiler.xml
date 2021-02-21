@@ -2,36 +2,78 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="elk" />
         <module name="jwt" />
+        <module name="react" />
+        <module name="ansible" />
         <module name="kafka" />
-        <module name="sas-config-tool" />
+        <module name="go-fastdfs" />
+        <module name="elk" />
+        <module name="front-static" />
+        <module name="helm" />
         <module name="shiro-redis" />
-        <module name="simple-monitor" />
-      </profile>
-      <profile name="Annotation profile for alltest-spring-boot" enabled="true">
-        <sourceOutputDir name="../kafka/target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../kafka/target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
+        <module name="mock-server" />
         <module name="quartz" />
+        <module name="minio" />
+        <module name="flowable" />
+        <module name="sas-config-tool" />
+        <module name="kube-client" />
+        <module name="issue-analysis" />
+        <module name="clickhouse" />
+        <module name="simple-monitor" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="alltest-spring-boot" target="1.8" />
+      <module name="ansible" target="1.8" />
+      <module name="clickhouse" target="1.8" />
       <module name="elk" target="1.8" />
       <module name="eureka-server" target="1.8" />
+      <module name="flowable" target="1.8" />
+      <module name="front-static" target="1.8" />
+      <module name="go-fastdfs" target="1.8" />
+      <module name="helm" target="1.8" />
+      <module name="issue-analysis" target="1.8" />
       <module name="jwt" target="1.8" />
       <module name="kafka" target="1.8" />
+      <module name="kube-client" target="1.8" />
+      <module name="minio" target="1.8" />
+      <module name="mock-server" target="1.8" />
       <module name="quartz" target="1.8" />
+      <module name="react" target="1.8" />
       <module name="sas-config-tool" target="1.8" />
+      <module name="service-demo" target="1.8" />
       <module name="shiro-redis" target="1.8" />
       <module name="simple-monitor" target="1.8" />
       <module name="spring-cloud" target="1.8" />
       <module name="spring-cloud-microservice" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ansible" options="-parameters" />
+      <module name="clickhouse" options="-parameters" />
+      <module name="elk" options="-parameters" />
+      <module name="flowable" options="-parameters" />
+      <module name="front-static" options="-parameters" />
+      <module name="go-fastdfs" options="-parameters" />
+      <module name="helm" options="-parameters" />
+      <module name="issue-analysis" options="-parameters" />
+      <module name="jwt" options="-parameters" />
+      <module name="kafka" options="-parameters" />
+      <module name="kube-client" options="-parameters" />
+      <module name="minio" options="-parameters" />
+      <module name="mock-server" options="-parameters" />
+      <module name="quartz" options="-parameters" />
+      <module name="react" options="-parameters" />
+      <module name="sas-config-tool" options="-parameters" />
+      <module name="service-demo" options="-parameters" />
+      <module name="shiro-redis" options="-parameters" />
+      <module name="simple-monitor" options="-parameters" />
+    </option>
   </component>
 </project>

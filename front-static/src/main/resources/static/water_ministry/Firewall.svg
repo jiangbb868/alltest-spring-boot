@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>防火墙@1x</title>
+    <defs>
+        <linearGradient x1="50.0061167%" y1="2.66901401%" x2="49.9944476%" y2="89.8067654%" id="linearGradient-1">
+            <stop stop-color="#CAE0FE" offset="0%"></stop>
+            <stop stop-color="#CCE1FD" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="65.1792638%" y1="51.6752083%" x2="58.011759%" y2="63.6029726%" id="linearGradient-2">
+            <stop stop-color="#9FC5FB" offset="0%"></stop>
+            <stop stop-color="#E2EFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="防火墙" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(96.000000, 96.000000)">
+            <polygon id="前" fill="#AFCBFC" points="0 472 624 832 624 484 0 124"></polygon>
+            <g id="前" transform="translate(0.000000, 194.000000)" fill="#FFFFFF">
+                <g id="1">
+                    <polygon id="白色" points="200 116 220 127 220 57 200 45"></polygon>
+                    <polygon id="白色" points="390 226 410 237 410 167 390 155"></polygon>
+                    <polygon id="白色" points="0 18 624 378 624 360 0 -1.20653487e-13"></polygon>
+                </g>
+                <g id="2" transform="translate(0.000000, 63.000000)">
+                    <polygon id="白色" points="79 79 99 90 99 12 79 -2.59167687e-13"></polygon>
+                    <polygon id="白色" points="275 192 295 203 295 125 275 113"></polygon>
+                    <polygon id="白色" points="480 310 500 321 500 243 480 231"></polygon>
+                    <polygon id="白色" points="0 50 624 410 624 392 0 32"></polygon>
+                </g>
+                <g id="3" transform="translate(0.000000, 190.000000)">
+                    <polygon id="白色" points="200 116 220 127 220 49 200 37"></polygon>
+                    <polygon id="白色" points="390 226 410 237 410 159 390 147"></polygon>
+                    <polygon id="白色" points="0 18 624 378 624 360 0 -1.20653487e-13"></polygon>
+                </g>
+                <g id="4" transform="translate(79.000000, 246.000000)">
+                    <polygon id="白色" points="0 79 20 90 20 12 0 -2.59167687e-13"></polygon>
+                    <polygon id="白色" points="196 192 216 203 216 125 196 113"></polygon>
+                    <polygon id="白色" points="401 310 421 321 421 243 401 231"></polygon>
+                </g>
+            </g>
+            <polygon id="右" fill="#9BBFF3" points="624 832 832 708 832 360 624 484"></polygon>
+            <polygon id="右" fill="url(#linearGradient-1)" points="624 832 628 829 628 481 624 484"></polygon>
+            <g id="右" transform="translate(628.000000, 430.000000)" fill="#FFFFFF">
+                <g id="1">
+                    <polygon id="白色" points="0 142 204 18 204 -9.76302372e-14 0 124"></polygon>
+                </g>
+                <g id="2" transform="translate(0.000000, 74.000000)">
+                    <polygon id="白色" transform="translate(102.000000, 45.000000) scale(1, -1) translate(-102.000000, -45.000000) " points="92 78 112 90 112 12 92 5.69856662e-14"></polygon>
+                    <polygon id="白色" points="0 163 204 39 204 21 9.10277062e-13 145"></polygon>
+                </g>
+                <g id="3" transform="translate(0.000000, 190.000000)">
+                    <polygon id="白色" points="0 142 204 18 204 -9.76302372e-14 9.09480824e-13 124"></polygon>
+                </g>
+                <g id="4" transform="translate(92.000000, 254.000000)">
+                    <polygon id="白色" transform="translate(10.000000, 45.000000) scale(1, -1) translate(-10.000000, -45.000000) " points="0 78 20 90 20 12 0 5.69856662e-14"></polygon>
+                </g>
+            </g>
+            <path d="M208.017387,2.31806701 L829.037319,360.025548 L623.985864,481.682871 L3.95319894,123.971718 L208.017387,2.31806701 Z" id="上" stroke="url(#linearGradient-2)" stroke-width="4" fill="#9FC5FB"></path>
+        </g>
+    </g>
+</svg>

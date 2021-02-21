@@ -41,13 +41,13 @@ public class SasItemController {
     @PostMapping(value="/update")
     public String update(@RequestBody SasStatisticItem statisticItem) throws Exception {
         sasItemService.update(statisticItem);
-        return "sucess";
+        return "success";
     }
 
     @PostMapping(value="/delete")
     public String delete(@RequestParam(value="id") String id) throws Exception {
         sasItemService.delete(id);
-        return "sucess";
+        return "success";
     }
 
     @PostMapping(value="/add")

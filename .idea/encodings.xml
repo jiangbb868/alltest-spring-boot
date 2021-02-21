@@ -2,12 +2,32 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ansible/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/clickhouse/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/elk" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/elk/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flowable/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/front-static/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/go-fastdfs/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/helm/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/issue-analysis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/issue-analysis/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jwt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jwt/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kafka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kafka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kube-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/minio/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mock-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/quartz" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/quartz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/react" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/react/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sas-config-tool" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sas-config-tool/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shiro-redis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shiro-redis/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/simple-monitor" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/simple-monitor/src/main/java" charset="UTF-8" />
   </component>
 </project>

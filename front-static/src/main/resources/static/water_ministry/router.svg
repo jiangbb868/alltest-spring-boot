@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>路由器@1x</title>
+    <defs>
+        <polygon id="path-1" points="0.499442586 476 449.99777 216 895.500557 476 449.99777 732"></polygon>
+        <filter x="-0.4%" y="-0.5%" width="100.8%" height="101.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="91.6280964%" y1="2.66901401%" x2="12.2125652%" y2="89.8067654%" id="linearGradient-3">
+            <stop stop-color="#A8CAF8" offset="0%"></stop>
+            <stop stop-color="#91B7F0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="45.9106782%" x2="50%" y2="98.9065501%" id="linearGradient-4">
+            <stop stop-color="#9FC5FB" offset="0%"></stop>
+            <stop stop-color="#E2EFFF" offset="100%"></stop>
+        </linearGradient>
+        <path d="M636.521888,303.426913 L633.497566,282.55606 L523.632502,285.653391 L518.385661,246.873047 L628.250724,243.775717 L625.226402,222.904863 L730.35401,260.327171 M377.54166,269.28645 L267.676596,272.383781 L270.684482,293.141206 L165.64599,255.648051 L259.575356,212.705016 L262.599678,233.57587 L372.044088,230.490398 L377.662095,269.260277 M389.848032,410.11207 L463.091408,412.176958 L470.865113,353.901218 L510.109706,355.007607 L441.658694,299.981407 L358.228679,350.725756 L397.349549,351.828657 L389.36976,410.32637 M537.789312,165.259594 L498.544719,164.153205 L506.68959,105.88793 L433.446214,103.823042 L425.375576,162.090411 L386.180473,160.985417 L454.570401,215.918781" id="path-5"></path>
+        <filter x="-0.4%" y="-0.6%" width="100.7%" height="101.3%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="-4" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0.21865238   0 0 0 0 0.545211129  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="路由器" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(64.000000, 146.000000)">
+            <g id="下">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#BFDCFD" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <polygon id="左" fill="url(#linearGradient-3)" points="0.499442586 258 0.499442586 476 448 218 448 0"></polygon>
+            <polygon id="后" fill="#AFCBFC" points="448 218 895.500557 476 895.500557 258 448 0"></polygon>
+            <polygon id="右" fill="#9BBFF3" points="448 516 448 732 895.500557 476 895.500557 258"></polygon>
+            <polygon id="前" fill="#AFCBFC" points="0.499442586 476 448 732 448 516 0.499442586 258"></polygon>
+            <path d="M448,2.30858683 L891.496318,258 L448,513.691413 L4.50368249,258 L448,2.30858683 Z" id="上" stroke="url(#linearGradient-4)" stroke-width="4" fill="#9FC5FB"></path>
+            <g id="交换" fill-rule="nonzero">
+                <use fill="#0559D6" xlink:href="#path-5"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+            </g>
+        </g>
+    </g>
+</svg>

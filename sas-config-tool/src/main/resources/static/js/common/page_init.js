@@ -66,7 +66,7 @@ function PageObject(_data) {
        layer.open({
           type : 1,
           skin : 'layui-layer-lan',
-          area : [ '800px', '500px' ],
+          area : [ '600px', '450px' ],
           shadeClose : true, //点击遮罩关闭
           title : '添加'+pageData["object"],
           content : $('#bidderDiv')
@@ -119,7 +119,7 @@ function PageObject(_data) {
        this.update = function (e, value, row, index) {
         layer.open({
                type : 1,
-               area : [ '900px', '540px' ],
+               area : [ '600px', '450px' ],
                shadeClose : true, //点击遮罩关闭
                title : '修改'+pageData["object"],
                content : $('#bidderDiv')

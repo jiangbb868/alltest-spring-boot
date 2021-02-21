@@ -1,0 +1,289 @@
+{
+  "id": "demo",
+  "configs": [
+    {
+      "id": "biz",
+      "name": "概览",
+      "widgets": [
+        {
+          "layouts": {
+            "w": 3,
+            "h": 90,
+            "x": 0,
+            "y": 0,
+            "i": "60ebf78d-8d49-8b1e-b91b-2bfa7f62409f",
+            "moved": false,
+            "static": false
+          },
+          "id": "60ebf78d-8d49-8b1e-b91b-2bfa7f62409f",
+          "title": "这是资源信息组件，拖拽添加到画布",
+          "icon": "",
+          "type": "uicbb-res-info",
+          "importFrom": "local",
+          "isOnlyOne": false,
+          "attributes": { "comName": "资源信息" },
+          "number": 0,
+          "dependentProps": [
+            {
+              "key": "resId",
+              "info": "资源信息组件缺少必要的顶级属性resId。请在可提供此属性的页面中使用此组件，例如：资源详情页面。"
+            }
+          ],
+          "attributeConfig": null
+        },
+        {
+          "layouts": {
+            "w": 3,
+            "h": 90,
+            "x": 0,
+            "y": 90,
+            "i": "50881e79-d151-f261-f714-97963756b956",
+            "moved": false,
+            "static": false
+          },
+          "id": "50881e79-d151-f261-f714-97963756b956",
+          "title": "这是资源告警列表组件，拖拽添加到画布",
+          "icon": "",
+          "type": "uicbb-res-alert-list-simple",
+          "importFrom": "local",
+          "isOnlyOne": false,
+          "attributes": { "comName": "资源告警列表" },
+          "dependentProps": [
+            {
+              "key": "resId",
+              "info": "资源告警列表组件缺少必要的顶级属性resId。请在可提供此属性的页面中使用此组件，例如：资源详情页面。"
+            }
+          ],
+          "alertType": "toDeal"
+        },
+        {
+          "layouts": {
+            "w": 9,
+            "h": 180,
+            "x": 3,
+            "y": 0,
+            "i": "e9a9cfa4-fbf3-0ec2-b789-624b97b9abce",
+            "moved": false,
+            "static": false
+          },
+          "id": "e9a9cfa4-fbf3-0ec2-b789-624b97b9abce",
+          "title": "这是指标趋势图组件，拖拽添加到画布",
+          "icon": "",
+          "type": "uicbb-metric-chart-list",
+          "importFrom": "local",
+          "isOnlyOne": false,
+          "attributes": { "comName": "指标趋势图" },
+          "dependentProps": [
+            {
+              "key": "resId",
+              "info": "指标趋势图组件缺少必要的顶级属性resId。请在可提供此属性的页面中使用此组件，例如：资源详情页面。"
+            }
+          ],
+          "metricListConfig": {}
+        }
+      ],
+      "layoutConfig": {
+        "cols": 12,
+        "rowHeight": 4,
+        "margin": [0, 0],
+        "measureBeforeMount": true
+      }
+    },
+    {
+      "id": "alarm",
+      "name": "告警",
+      "widgets": [
+        {
+          "layouts": {
+            "w": 3,
+            "h": 160,
+            "x": 0,
+            "y": 0,
+            "i": "11450c12-a039-9c67-2344-842ff3ef8843",
+            "moved": false,
+            "static": false
+          },
+          "id": "11450c12-a039-9c67-2344-842ff3ef8843",
+          "title": "这是资源信息组件，拖拽添加到画布",
+          "icon": "",
+          "type": "uicbb-res-info",
+          "importFrom": "local",
+          "isOnlyOne": false,
+          "attributes": { "comName": "资源信息" },
+          "dependentProps": [
+            {
+              "key": "resId",
+              "info": "资源信息组件缺少必要的顶级属性resId。请在可提供此属性的页面中使用此组件，例如：资源详情页面。"
+            }
+          ],
+          "attributeConfig": null
+        },
+        {
+          "layouts": {
+            "w": 9,
+            "h": 160,
+            "x": 3,
+            "y": 0,
+            "i": "a76da3c4-20cb-96e8-93b0-89823ab5e61d",
+            "moved": false,
+            "static": false
+          },
+          "id": "a76da3c4-20cb-96e8-93b0-89823ab5e61d",
+          "title": "这是告警列表组件，拖拽添加到画布",
+          "icon": "",
+          "type": "uicbb-res-alert-list",
+          "importFrom": "local",
+          "isOnlyOne": false,
+          "attributes": { "comName": "告警列表" },
+          "columnConfig": [
+            { "key": "alertTitle", "hiddenDisabled": true, "hidden": false },
+            { "key": "createTime", "hiddenDisabled": true, "hidden": false },
+            { "key": "alertType", "hidden": false },
+            { "key": "duration", "hidden": false },
+            { "key": "ciType", "hidden": true },
+            { "key": "status", "hidden": true },
+            { "key": "alertLevel", "hidden": true },
+            { "key": "processTime", "hidden": true },
+            { "key": "recoverTime", "hidden": true },
+            { "key": "closeTime", "hidden": true },
+            { "key": "tags", "hidden": true }
+          ],
+          "dependentProps": [
+            {
+              "key": "resId",
+              "info": "告警列表组件缺少必要的顶级属性resId。请在可提供此属性的页面中使用此组件，例如：资源详情页面。"
+            }
+          ]
+        }
+      ],
+      "layoutConfig": {
+        "cols": 12,
+        "rowHeight": 4,
+        "margin": [0, 0],
+        "measureBeforeMount": true
+      }
+    },
+    {
+      "id": "6fdc2f7f-3e4f-fb8b-9765-59dc38f3c9e4",
+      "name": "关系",
+      "widgets": [
+        {
+          "layouts": {
+            "w": 3,
+            "h": 160,
+            "x": 0,
+            "y": 0,
+            "i": "a360a4c8-8623-e149-8fe4-32f3d1a4658e",
+            "moved": false,
+            "static": false
+          },
+          "id": "a360a4c8-8623-e149-8fe4-32f3d1a4658e",
+          "title": "这是资源信息组件，拖拽添加到画布",
+          "icon": "",
+          "type": "uicbb-res-info",
+          "importFrom": "local",
+          "isOnlyOne": false,
+          "attributes": { "comName": "资源信息" },
+          "dependentProps": [
+            {
+              "key": "resId",
+              "info": "资源信息组件缺少必要的顶级属性resId。请在可提供此属性的页面中使用此组件，例如：资源详情页面。"
+            }
+          ],
+          "attributeConfig": null
+        },
+        {
+          "layouts": {
+            "w": 9,
+            "h": 160,
+            "x": 3,
+            "y": 0,
+            "i": "d1a51444-cfbe-0e29-27b7-2b2aafca0b16",
+            "moved": false,
+            "static": false
+          },
+          "id": "d1a51444-cfbe-0e29-27b7-2b2aafca0b16",
+          "title": "这是资源关系图组件，拖拽添加到画布",
+          "icon": "",
+          "type": "uicbb-res-topo",
+          "importFrom": "local",
+          "isOnlyOne": false,
+          "attributes": { "comName": "资源关系图" },
+          "dependentProps": [
+            {
+              "key": "resId",
+              "info": "资源信息组件缺少必要的顶级属性resId。请在可提供此属性的页面中使用此组件，例如：资源详情页面。"
+            }
+          ]
+        }
+      ],
+      "layoutConfig": {
+        "cols": 12,
+        "rowHeight": 4,
+        "margin": [0, 0],
+        "measureBeforeMount": true
+      }
+    },
+    {
+      "id": "2847c0fc-9e20-ab1f-3ef5-7c1f95c6ae0f",
+      "name": "组件",
+      "widgets": [
+        {
+          "layouts": {
+            "w": 9,
+            "h": 160,
+            "x": 3,
+            "y": 0,
+            "i": "2147dfb4-aedd-2769-94d2-9ba237944c18",
+            "moved": false,
+            "static": false
+          },
+          "id": "2147dfb4-aedd-2769-94d2-9ba237944c18",
+          "title": "这是组件列表组件，拖拽添加到画布",
+          "icon": "",
+          "type": "uicbb-res-components-list",
+          "importFrom": "local",
+          "isOnlyOne": false,
+          "attributes": { "comName": "组件列表" },
+          "dependentProps": [
+            {
+              "key": "resId",
+              "info": "组件列表组件缺少必要的顶级属性resId。请在可提供此属性的页面中使用此组件，例如：资源详情页面。"
+            }
+          ]
+        },
+        {
+          "layouts": {
+            "w": 3,
+            "h": 160,
+            "x": 0,
+            "y": 0,
+            "i": "5fc9e937-e4d3-2685-f98a-ba6d50567a3d",
+            "moved": false,
+            "static": false
+          },
+          "id": "5fc9e937-e4d3-2685-f98a-ba6d50567a3d",
+          "title": "这是资源信息组件，拖拽添加到画布",
+          "icon": "",
+          "type": "uicbb-res-info",
+          "importFrom": "local",
+          "isOnlyOne": false,
+          "attributes": { "comName": "资源信息" },
+          "dependentProps": [
+            {
+              "key": "resId",
+              "info": "资源信息组件缺少必要的顶级属性resId。请在可提供此属性的页面中使用此组件，例如：资源详情页面。"
+            }
+          ],
+          "attributeConfig": null
+        }
+      ],
+      "layoutConfig": {
+        "cols": 12,
+        "rowHeight": 4,
+        "margin": [0, 0],
+        "measureBeforeMount": true
+      }
+    }
+  ]
+}

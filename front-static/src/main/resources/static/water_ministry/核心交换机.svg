@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>核心交换机@1x</title>
+    <defs>
+        <polygon id="path-1" points="1 458.471698 447.575338 200 895.004454 458.471698 449.071998 716"></polygon>
+        <filter x="-0.4%" y="-0.5%" width="100.8%" height="101.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="50%" y1="45.9106782%" x2="50%" y2="98.9065501%" id="linearGradient-3">
+            <stop stop-color="#9FC5FB" offset="0%"></stop>
+            <stop stop-color="#E2EFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="核心交换机" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(63.500000, 96.000000)">
+            <g id="下" transform="translate(0.498886, 112.000000)">
+                <g>
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#BFDCFD" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <polygon id="右" fill="#9BBFF3" points="448.501114 514 448.002227 720 895.004454 462 895.004454 256"></polygon>
+                <polygon id="前" fill="#AFCBFC" points="1 462 448.002227 720 448.501114 516 0.501113586 258"></polygon>
+                <path d="M448.377606,2.30922916 L891.37894,258 L448.377606,513.690771 L5.37627278,258 L448.377606,2.30922916 Z" id="上" stroke="url(#linearGradient-3)" stroke-width="4" fill="#9FC5FB"></path>
+            </g>
+            <g id="上" transform="translate(1.498886, 0.000000)">
+                <polygon id="下" fill="#BFDCFD" points="0 366.471698 446.575338 108 894.004454 366.471698 448.071998 624"></polygon>
+                <polygon id="右" fill="#9BBFF3" points="447.002227 516 447.002227 624 894.004454 366 894.004454 258"></polygon>
+                <polygon id="前" fill="#AFCBFC" points="0 366 447.002227 624 447.002227 516 0 258"></polygon>
+                <path d="M447.377606,2.30922916 L890.37894,258 L447.377606,513.690771 L4.37627278,258 L447.377606,2.30922916 Z" stroke="url(#linearGradient-3)" stroke-width="4" fill="#9FC5FB"></path>
+            </g>
+            <path d="M401,357.5 L489.5,412 L529.5,376.5 L532.5,378.5 L489.5,416.5 L399.5,362 L401,357.5 Z M405,246 L390,299.5 L329.544587,320.37355 L237.5,262 L237.5,257.5 L328.5,313.5 L387,296 L400.5,246 L405,246 Z M657.5,282 L658.5,289.031559 L557.5,294.5 L557.5,288.5 L657.5,282 Z M552.5,247.5 L582,265.5 L557.5,288.5 L577,270 L551.5,253.5 L512,266.5 L512,261.5 L552.5,247.5 Z M415.5,162 L445,180 L444,184 L416,167.5 L392.5,188 L391.5,183.5 L415.5,162 Z" id="阴影" fill="#00409F" fill-rule="nonzero"></path>
+            <path d="M378.190896,109.330967 L391.765765,183.762913 L415.583495,162.117317 L445.026745,180.113678 L400.795295,357.314685 L489.363957,412 L529.636924,376.313211 L463.829409,335.650049 L508.060859,158.449042 L455.617551,125.734295 L453.141626,124.330996 L478.718547,102 M343.580483,262.261309 L277.772967,221.598147 L237.5,257.284936 L328.544587,313.37355 L387.017859,295.853815 L400.533474,246.123208 M622.344415,229.952275 L571.1246,198.865682 L524.45891,212.048157 L512.195726,261.553908 L552.628197,247.642703 L582.071448,265.639064 L556.733437,288.666293 L657.5,282.031559 L647.682425,206.925045" id="交换" fill="#0559D6" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

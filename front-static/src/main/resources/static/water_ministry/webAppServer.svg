@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>服务器@1x</title>
+    <defs>
+        <linearGradient x1="50%" y1="45.9106782%" x2="50%" y2="98.9065501%" id="linearGradient-1">
+            <stop stop-color="#9FC5FB" offset="0%"></stop>
+            <stop stop-color="#E2EFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="服务器" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(192.000000, 64.000000)">
+            <polygon id="前" fill="#AFCBFC" points="0 738 256 896 256 372 2.84217094e-14 222"></polygon>
+            <polygon id="阴影" fill="#00409F" points="54 512 58 514 58 454 198 526 198 521 54 448"></polygon>
+            <polygon id="阴影" fill="#00409F" points="54 422 58 424 58 364 198 436 198 431 54 358"></polygon>
+            <polygon id="矩形" fill="#0559D6" points="58 424 198 496 198 436 58 364"></polygon>
+            <polygon id="右" fill="#9BBFF3" points="256 374 256 896 640 666 640 150"></polygon>
+            <path d="M383.993248,2.31407974 L636.037322,149.996155 L256.008977,371.679356 L3.95618172,222.023009 L383.993248,2.31407974 Z" id="上" stroke="url(#linearGradient-1)" stroke-width="4" fill="#9FC5FB"></path>
+            <polygon id="矩形" fill="#0559D6" points="58 514 198 586 198 526 58 454"></polygon>
+            <path d="M124,677.487995 C141.673112,687.670745 156,680.036979 156,660.4375 C156,640.838022 141.673112,616.694755 124,606.512005 C106.326888,596.329255 92,603.963021 92,623.5625 C92,643.161978 106.326888,667.305245 124,677.487995 Z" id="椭圆形" fill="#00409F"></path>
+            <path d="M128,681.487995 C145.673112,691.670745 160,684.036979 160,664.4375 C160,644.838022 145.673112,620.694755 128,610.512005 C110.326888,600.329255 96,607.963021 96,627.5625 C96,647.161978 110.326888,671.305245 128,681.487995 Z" id="椭圆形" fill="#0559D6"></path>
+        </g>
+    </g>
+</svg>

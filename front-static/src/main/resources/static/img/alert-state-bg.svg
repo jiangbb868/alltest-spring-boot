@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="88px" height="26px" viewBox="0 0 88 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 2</title>
+    <g id="资源详情" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="告警详情" transform="translate(-214.000000, -110.000000)">
+            <g id="侧边栏" transform="translate(16.000000, 110.000000)">
+                <g id="编组-2" transform="translate(198.000000, 0.000000)">
+                    <path d="M0,0 L17.9711887,21.6619544 C20.2509882,24.4099592 23.6361119,26 27.2066884,26 L84,26 C86.209139,26 88,24.209139 88,22 L88,4 C88,1.790861 86.209139,-4.05812251e-16 84,0 L0,0 L0,0 Z" id="背景" fill="#35404F"></path>
+                    <polygon id="路径" fill="#222833" points="-2.08721929e-14 0 -2.08721929e-14 4 3.29245335 4"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

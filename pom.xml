@@ -16,6 +16,16 @@
         <module>simple-monitor</module>
         <module>sas-config-tool</module>
         <module>jwt</module>
+        <module>issue-analysis</module>
+        <module>mock-server</module>
+        <module>flowable</module>
+        <module>ansible</module>
+        <module>helm</module>
+        <module>front-static</module>
+        <module>clickhouse</module>
+        <module>kube-client</module>
+        <module>minio</module>
+        <module>go-fastdfs</module>
     </modules>
 
     <parent>

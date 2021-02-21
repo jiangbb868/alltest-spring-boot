@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>问题配置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+          charset="utf-8" />
+</head>
+<script src="js/common/page_init.js "></script>
+<script src="js/util/select_util.js "></script>
+<script>
+    $(function() {
+        var pageData = {
+            "title":"问题配置",
+            "object":"问题",
+            "addURL":"/isa/issue/add",
+            "updateURL":"/isa/issue/update",
+            "deleteURL":"/isa/issue/delete",
+            "queryURL":"/isa/issue/list",
+            "fields":[
+                {"name":"名称", "code":"name", "type":"text", "showInTable":true,"width":30}
+            ]
+        };
+        var pageObject = new PageObject(pageData);
+        var bodyHtml = pageObject.initBody();
+        $('#content').html(bodyHtml);
+        pageObject.initTable().Init();
+        pageObject.initEvent().Init();
+    });
+</script>
+<body>
+<div id="content"></div>
+</body>
+</html>

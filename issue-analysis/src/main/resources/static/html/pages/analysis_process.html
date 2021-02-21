@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>分析步骤配置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+          charset="utf-8" />
+</head>
+<script src="js/common/page_init.js "></script>
+<script src="js/util/select_util.js "></script>
+    <script>
+        $(function() {
+            var pageData = {
+                "title":"分析步骤配置",
+                "object":"分析步骤",
+                "addURL":"/isa/process/add",
+                "updateURL":"/isa/process/update",
+                "deleteURL":"/isa/process/delete",
+                "queryURL":"/isa/process/list",
+                "fields":[
+                    {"name":"名称", "code":"name", "type":"text","showInTable":true, "width":40},
+                    {"name":"类型", "code":"type", "type":"select", "showInTable":true,"width":30, "selectType":"reference", "selectObject":"databaseType","selectField":"id"},
+                    {"name":"内容", "code":"content", "type":"textarea", "showInTable":true,"width":100},
+                    {"name":"入参", "code":"inParams", "type":"text", "showInTable":true,"width":30},
+                    {"name":"出参", "code":"outParams", "type":"text", "showInTable":true,"width":30},
+                    {"name":"描述", "code":"describe", "type":"textarea", "showInTable":true,"width":60}
+                ]
+            };
+            var pageObject = new PageObject(pageData);
+            var bodyHtml = pageObject.initBody();
+            $('#content').html(bodyHtml);
+            pageObject.initTable().Init();
+            pageObject.initEvent().Init();
+        });
+    </script>
+    <body>
+    <div id="content"></div>
+    </body>
+</html>

@@ -35,24 +35,24 @@ public class SasDimRelationController {
     @PostMapping(value="/add")
     public String add(@RequestBody SasDimRelation DimRelation) throws Exception {
         sasDimRelationService.add(DimRelation);
-        return "sucess";
+        return "success";
     }
 
     @PostMapping(value="/update")
     public String update(@RequestBody SasDimRelation DimRelation) throws Exception {
         sasDimRelationService.update(DimRelation);
-        return "sucess";
+        return "success";
     }
 
     @PostMapping(value="/delete")
     public String delete(@RequestParam(value="id") String id) throws Exception {
         sasDimRelationService.delete(id);
-        return "sucess";
+        return "success";
     }
 
     @GetMapping(value="/get")
     public String get(@RequestParam(value="id") String id) throws Exception {
         sasDimRelationService.get(id);
-        return "sucess";
+        return "success";
     }
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>统计项配置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+          charset="utf-8" />
+</head>
+<script src="js/common/page_init.js "></script>
+<script src="js/util/select_util.js "></script>
+    <script>
+        $(function() {
+            var pageData = {
+                "title":"维度配置",
+                "object":"维度",
+                "addURL":"/sas/dimension/add",
+                "updateURL":"/sas/dimension/update",
+                "deleteURL":"/sas/dimension/delete",
+                "queryURL":"/sas/dimension/list",
+                "fields":[
+                    {"name":"名称", "code":"displayName", "type":"text","showInTable":true, "width":60},
+                    {"name":"英文名", "code":"name", "type":"text", "showInTable":false,"width":30},
+                    {"name":"维度对象", "code":"dimension_object", "type":"select", "showInTable":true,"width":100, "selectType":"reference", "selectObject":"4eec2496-8391-11e9-9efc-73158419bc0c","selectField":"id"},
+                    {"name":"维度属性", "code":"dimension_attribute", "type":"select","showInTable":true, "width":100, "selectType":"reference","selectObject":"0c8e2cea-8394-11e9-a2a2-bbce877b27f0","selectField":"id"},
+                    {"name":"主键", "code":"primary_key", "type":"select", "showInTable":false,"width":300},
+                    {"name":"显示属性", "code":"display_attribute", "type":"select","showInTable":true, "width":30},
+                    {"name":"维度类型", "code":"dimension_type", "type":"select","showInTable":true, "width":30, "selectType":"lookup", "selectObject":"d81a4a90-839b-11e9-b846-23d922fea2ec","selectField":"id"},
+                    {"name":"配置", "code":"dimension_config", "type":"textarea","showInTable":true, "width":30},
+                    {"name":"描述", "code":"describe", "type":"textarea","showInTable":true, "width":30},
+                    {"name":"数据源", "code":"data_source", "type":"select", "showInTable":true,"width":30, "selectType":"reference", "selectObject":"d81a4a90-839b-11e9-b846-23d922fea2ec","selectField":"id"}
+                ]};
+            var pageObject = new PageObject(pageData);
+            var bodyHtml = pageObject.initBody();
+            $('#content').html(bodyHtml);
+            pageObject.initTable().Init();
+            pageObject.initEvent().Init();
+        });
+    </script>
+    <body>
+    <div id="content"></div>
+    </body>
+</html>

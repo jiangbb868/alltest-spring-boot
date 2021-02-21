@@ -3,10 +3,21 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/alltest-spring-boot.iml" filepath="$PROJECT_DIR$/alltest-spring-boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ansible/ansible.iml" filepath="$PROJECT_DIR$/ansible/ansible.iml" />
+      <module fileurl="file://$PROJECT_DIR$/clickhouse/clickhouse.iml" filepath="$PROJECT_DIR$/clickhouse/clickhouse.iml" />
       <module fileurl="file://$PROJECT_DIR$/elk/elk.iml" filepath="$PROJECT_DIR$/elk/elk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flowable/flowable.iml" filepath="$PROJECT_DIR$/flowable/flowable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/front-static/front-static.iml" filepath="$PROJECT_DIR$/front-static/front-static.iml" />
+      <module fileurl="file://$PROJECT_DIR$/go-fastdfs/go-fastdfs.iml" filepath="$PROJECT_DIR$/go-fastdfs/go-fastdfs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/helm/helm.iml" filepath="$PROJECT_DIR$/helm/helm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/issue-analysis/issue-analysis.iml" filepath="$PROJECT_DIR$/issue-analysis/issue-analysis.iml" />
       <module fileurl="file://$PROJECT_DIR$/jwt/jwt.iml" filepath="$PROJECT_DIR$/jwt/jwt.iml" />
       <module fileurl="file://$PROJECT_DIR$/kafka/kafka.iml" filepath="$PROJECT_DIR$/kafka/kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kube-client/kube-client.iml" filepath="$PROJECT_DIR$/kube-client/kube-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/minio/minio.iml" filepath="$PROJECT_DIR$/minio/minio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mock-server/mock-server.iml" filepath="$PROJECT_DIR$/mock-server/mock-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/quartz/quartz.iml" filepath="$PROJECT_DIR$/quartz/quartz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/react/react.iml" filepath="$PROJECT_DIR$/react/react.iml" />
       <module fileurl="file://$PROJECT_DIR$/sas-config-tool/sas-config-tool.iml" filepath="$PROJECT_DIR$/sas-config-tool/sas-config-tool.iml" />
       <module fileurl="file://$PROJECT_DIR$/shiro-redis/shiro-redis.iml" filepath="$PROJECT_DIR$/shiro-redis/shiro-redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/simple-monitor/simple-monitor.iml" filepath="$PROJECT_DIR$/simple-monitor/simple-monitor.iml" />

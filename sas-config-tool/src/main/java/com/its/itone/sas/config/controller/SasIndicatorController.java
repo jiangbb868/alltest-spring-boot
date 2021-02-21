@@ -33,24 +33,24 @@ public class SasIndicatorController {
     @PostMapping(value="/add")
     public String add(@RequestBody SasStatisticIndicator indicator) throws Exception {
         sasIndicatorService.add(indicator);
-        return "sucess";
+        return "success";
     }
 
     @PostMapping(value="/update")
     public String update(@RequestBody SasStatisticIndicator indicator) throws Exception {
         sasIndicatorService.update(indicator);
-        return "sucess";
+        return "success";
     }
 
     @PostMapping(value="/delete")
     public String delete(@RequestParam(value="id") String id) throws Exception {
         sasIndicatorService.delete(id);
-        return "sucess";
+        return "success";
     }
 
     @GetMapping(value="/get")
     public String get(@RequestParam(value="id") String id) throws Exception {
         sasIndicatorService.get(id);
-        return "sucess";
+        return "success";
     }
 }

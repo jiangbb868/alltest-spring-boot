@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://${BASE_NAMESPACE}:3306/test
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    prefix: classpath:/static/html/
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  config-location: classpath:mybatis-config.xml
+  typeAliasesPackage: com.alkaid.helm
+#  type-handlers-package: com.alkaid.helm.mybatis.typehandler
+druid:
+  maxActive: 50
+  initialSize: 10
+  maxWait: 60000
+  minIdle: 6
+  timeBetweenEvictionRunsMillis: 60000
+  minEvictableIdleTimeMillis: 30000
+  validationQuery: select 'x'
+  testWhileIdle: true
+  testOnBorrow: false
+  testOnReturn: false
+  poolPreparedStatements: true
+  maxOpenPreparedStatements: 20

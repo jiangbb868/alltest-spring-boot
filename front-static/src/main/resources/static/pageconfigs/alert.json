@@ -1,0 +1,126 @@
+{
+  "id": "demo",
+  "configs": [
+    {
+      "id": "biz",
+      "name": "概览",
+      "widgets": [
+        {
+          "layouts": {
+            "w": 9,
+            "h": 100,
+            "x": 3,
+            "y": 100,
+            "i": "e9a9cfa4-fbf3-0ec2-b789-624b97b9abce",
+            "moved": false,
+            "static": false
+          },
+          "id": "e9a9cfa4-fbf3-0ec2-b789-624b97b9abce",
+          "title": "这是指标趋势图组件，拖拽添加到画布",
+          "icon": "",
+          "type": "uicbb-metric-chart-list",
+          "importFrom": "local",
+          "isOnlyOne": false,
+          "attributes": { "comName": "指标趋势图" },
+          "dependentProps": [
+            {
+              "key": "resId",
+              "info": "指标趋势图组件缺少必要的顶级属性resId。请在可提供此属性的页面中使用此组件，例如：资源详情页面。"
+            }
+          ],
+          "metricListConfig": {}
+        },
+        {
+          "layouts": {
+            "w": 3,
+            "h": 100,
+            "x": 0,
+            "y": 0,
+            "i": "9dc77aee-3e60-1b3a-4ac0-fcc0018f762f",
+            "moved": false,
+            "static": false
+          },
+          "id": "9dc77aee-3e60-1b3a-4ac0-fcc0018f762f",
+          "title": "这是告警详情组件，拖拽添加到画布",
+          "icon": "",
+          "type": "uicbb-alert-info",
+          "importFrom": "local",
+          "isOnlyOne": false,
+          "attributes": { "comName": "告警详情" },
+          "dependentProps": [
+            {
+              "key": "resId",
+              "info": "告警详情组件缺少必要的顶级属性resId。请在可提供此属性的页面中使用此组件，例如：告警详情页面。"
+            },
+            {
+              "key": "alertId",
+              "info": "告警详情组件缺少必要的顶级属性alartId。请在可提供此属性的页面中使用此组件，例如：告警详情页面。"
+            }
+          ]
+        },
+        {
+          "layouts": {
+            "w": 3,
+            "h": 100,
+            "x": 0,
+            "y": 100,
+            "i": "b2a276eb-766b-f092-d4c7-07b5452d1349",
+            "moved": false,
+            "static": false
+          },
+          "id": "b2a276eb-766b-f092-d4c7-07b5452d1349",
+          "title": "这是告警追溯组件，拖拽添加到画布",
+          "icon": "",
+          "type": "uicbb-alert-trace-back",
+          "importFrom": "local",
+          "isOnlyOne": false,
+          "attributes": { "comName": "告警追溯" },
+          "dependentProps": [
+            {
+              "key": "resId",
+              "info": "告警追溯组件缺少必要的顶级属性resId。请在可提供此属性的页面中使用此组件，例如：告警详情页面。"
+            },
+            {
+              "key": "alertId",
+              "info": "告警追溯组件缺少必要的顶级属性alartId。请在可提供此属性的页面中使用此组件，例如：告警详情页面。"
+            }
+          ]
+        },
+        {
+          "layouts": {
+            "w": 9,
+            "h": 100,
+            "x": 3,
+            "y": 0,
+            "i": "ddd8c8bc-768b-9cce-1e3e-d2548ff7a487",
+            "moved": false,
+            "static": false
+          },
+          "id": "ddd8c8bc-768b-9cce-1e3e-d2548ff7a487",
+          "title": "这是资源关系图组件，拖拽添加到画布",
+          "icon": "",
+          "type": "uicbb-res-topo",
+          "importFrom": "local",
+          "isOnlyOne": false,
+          "attributes": { "comName": "资源关系图" },
+          "dependentProps": [
+            {
+              "key": "resId",
+              "info": "资源信息组件缺少必要的顶级属性resId。请在可提供此属性的页面中使用此组件，例如：资源详情页面。"
+            },
+            {
+              "key": "alertId",
+              "info": "资源信息组件缺少必要的顶级属性alartId。请在可提供此属性的页面中使用此组件，例如：告警详情页面。"
+            }
+          ]
+        }
+      ],
+      "layoutConfig": {
+        "cols": 12,
+        "rowHeight": 4,
+        "margin": [0, 0],
+        "measureBeforeMount": true
+      }
+    }
+  ]
+}

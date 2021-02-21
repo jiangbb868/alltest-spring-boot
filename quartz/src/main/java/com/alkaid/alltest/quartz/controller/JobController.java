@@ -25,20 +25,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class JobController {
 
-    @RequestMapping(value = "/addJob/{group}/{prefix}/{count}/{interval}", method = RequestMethod.GET)
+    @RequestMapping(value = "/addJob/{group}/{prefix}/{jobCount}/{interval}", method = RequestMethod.GET)
     public String addJob(@PathVariable(value="prefix") String prefix,
                          @PathVariable(value="group") String group,
-                         @PathVariable(value="count") int count,
+                         @PathVariable(value="jobCount") int jobCount,
                          @PathVariable(value="interval") String interval)
             throws SchedulerException, ClassNotFoundException {
 
-        if (prefix == null || prefix.isEmpty() || count <= 0) {
+        if (prefix == null || prefix.isEmpty() || jobCount <= 0) {
             return "bad request";
         }
         Class<? extends Job> clazz = getJobClass(prefix);
 
         long startIndex = Resource.redisUtil.incr(Resource.JOB_INDEX, 1);
-        long endIndex = startIndex + count;
+        long endIndex = startIndex + jobCount;
         for (long i = startIndex; i < endIndex; i ++) {
             String jobIdentity = "job_" + prefix + "_" + i;
             String triggerIdentity = "trigger_" + prefix + "_" + i;
@@ -48,7 +48,7 @@ public class JobController {
             Trigger trigger = buildTrigger(interval, triggerIdentity, group);
             schedulerManager.addJob(jobDetail, trigger);
         }
-        return "add job succeed ! prefix: " + prefix + " count: " + count;
+        return "add job succeed ! prefix: " + prefix + " jobCount: " + jobCount;
     }
 
     private JobDetail buildJob(Class<? extends Job> clazz, String jobIdentity, String group) {
@@ -64,7 +64,9 @@ public class JobController {
             String[] args = interval.split("-");
             // 一次性任务
             return buildSimpleTrigger(triggerIdentity, group,
-                                                 Integer.valueOf(args[0]), Integer.valueOf(args[1]));
+                    Integer.valueOf(args[0]),  // startAt
+                    Integer.valueOf(args[1]),  // repeatCount
+                    Integer.valueOf(args[2])); // interval
         } else {
             // 周期性任务
             String cron;
@@ -81,13 +83,14 @@ public class JobController {
     }
 
     private Trigger buildSimpleTrigger(String triggerIdentity, String group,
-                                       int repeatCount, int interval) {
-        return  TriggerBuilder.newTrigger()
-                        .withIdentity(triggerIdentity, group)
-                        .startAt(futureDate(1, DateBuilder.IntervalUnit.SECOND))
-                        .withSchedule(
-                                simpleSchedule().withRepeatCount(repeatCount).withIntervalInSeconds(interval))
-                        .build();
+                                       int startAt, int repeatCount, int interval) {
+        TriggerBuilder builder = TriggerBuilder.newTrigger();
+        builder.withIdentity(triggerIdentity, group)
+                .startAt(futureDate(startAt, DateBuilder.IntervalUnit.SECOND));
+        if (repeatCount > 0 && interval > 0) {
+            builder.withSchedule(simpleSchedule().withRepeatCount(repeatCount).withIntervalInSeconds(interval));
+        }
+        return builder.build();
     }
 
     private Trigger builderCronTrigger(String triggerIdentity, String group, String cron) {

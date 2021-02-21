@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="124px" height="24px" viewBox="0 0 124 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>↳Icon 图标/discovery/Windows操作系统@1x</title>
+    <g id="↳Icon-图标/discovery/Windows操作系统" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="windows" transform="translate(50.000000, 0.000000)" fill-rule="nonzero">
+            <polygon id="路径" fill="#90C300" points="11.3142857 1.88571429 24 0 24 11.3142857 11.3142857 11.3142857"></polygon>
+            <polygon id="路径" fill="#F8672C" points="0 3.6 9.6 2.22857143 9.6 11.4857143 0 11.4857143"></polygon>
+            <polygon id="路径" fill="#FFC400" points="11.3142857 22.1142857 24 24 24 13.0285714 11.3142857 13.0285714 11.3142857 22.1142857"></polygon>
+            <polygon id="路径" fill="#00B4F2" points="0 20.4 9.6 21.7714286 9.6 13.0285714 0 13.0285714 0 20.4"></polygon>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>分析流程配置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+          charset="utf-8" />
+</head>
+<script src="js/common/page_init.js "></script>
+<script src="js/util/select_util.js "></script>
+<script>
+    $(function() {
+        var pageData = {
+            "title":"分析流程配置",
+            "object":"分析流程",
+            "addURL":"/isa/flow/add",
+            "updateURL":"/isa/flow/update",
+            "deleteURL":"/isa/flow/delete",
+            "queryURL":"/isa/flow/list",
+            "fields":[
+                {"name":"名称", "code":"name", "type":"text", "showInTable":true,"width":30},
+                {"name":"关联问题", "code":"object", "type":"select", "showInTable":true,"width":100, "selectType":"reference", "selectObject":"databaseType","selectField":"id"},
+                {"name":"首顺序", "code":"firstSequence", "type":"select", "showInTable":true,"width":100, "selectType":"reference", "selectObject":"databaseType","selectField":"id"}
+            ]
+        };
+        var pageObject = new PageObject(pageData);
+        var bodyHtml = pageObject.initBody();
+        $('#content').html(bodyHtml);
+        pageObject.initTable().Init();
+        pageObject.initEvent().Init();
+    });
+</script>
+<body>
+<div id="content"></div>
+</body>
+</html>

@@ -33,25 +33,25 @@ public class SasDataSourceController {
     @PostMapping(value="/add")
     public String add(@RequestBody SasDataSource dataSource) throws Exception {
         sasDataSourceService.add(dataSource);
-        return "sucess";
+        return "success";
     }
 
     @PostMapping(value="/update")
     public String update(@RequestBody SasDataSource dataSource) throws Exception {
         sasDataSourceService.update(dataSource);
-        return "sucess";
+        return "success";
     }
 
     @PostMapping(value="/delete")
     public String delete(@RequestParam(value="id") String id) throws Exception {
         sasDataSourceService.delete(id);
-        return "sucess";
+        return "success";
     }
 
     @GetMapping(value="/get")
     public String get(@RequestParam(value="id") String id) throws Exception {
         sasDataSourceService.get(id);
-        return "sucess";
+        return "success";
     }
 
 }

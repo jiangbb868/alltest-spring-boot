@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>交换机@1x</title>
+    <defs>
+        <polygon id="path-1" points="0.499442586 476 449.99777 216 895.500557 476 449.99777 732"></polygon>
+        <filter x="-0.4%" y="-0.5%" width="100.8%" height="101.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="91.6280964%" y1="2.66901401%" x2="12.2125652%" y2="89.8067654%" id="linearGradient-3">
+            <stop stop-color="#A8CAF8" offset="0%"></stop>
+            <stop stop-color="#91B7F0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="45.9106782%" x2="50%" y2="98.9065501%" id="linearGradient-4">
+            <stop stop-color="#9FC5FB" offset="0%"></stop>
+            <stop stop-color="#E2EFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="交换机" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(64.000000, 146.000000)">
+            <g id="下">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#BFDCFD" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <polygon id="左" fill="url(#linearGradient-3)" points="0.499442586 258 0.499442586 476 448 218 448 0"></polygon>
+            <polygon id="后" fill="#AFCBFC" points="448 218 895.500557 476 895.500557 258 448 0"></polygon>
+            <polygon id="右" fill="#9BBFF3" points="448 516 448 732 895.500557 476 895.500557 258"></polygon>
+            <polygon id="前" fill="#AFCBFC" points="0.499442586 476 448 732 448 516 0.499442586 258"></polygon>
+            <path d="M448,2.30858683 L891.496318,258 L448,513.691413 L4.50368249,258 L448,2.30858683 Z" id="上" stroke="url(#linearGradient-4)" stroke-width="4" fill="#9FC5FB"></path>
+            <path d="M401.5,358.5 L490,413 L530,377.5 L533,379.5 L490,417.5 L400,363 L401.5,358.5 Z M405.5,247 L390.5,300.5 L330.044587,321.37355 L238,263 L238,258.5 L329,314.5 L387.5,297 L401,247 L405.5,247 Z M658,283 L659,290.031559 L558,295.5 L558,289.5 L658,283 Z M553,248.5 L582.5,266.5 L558,289.5 L577.5,271 L552,254.5 L512.5,267.5 L512.5,262.5 L553,248.5 Z M416,163 L445.5,181 L444.5,185 L416.5,168.5 L393,189 L392,184.5 L416,163 Z" id="阴影" fill="#00409F" fill-rule="nonzero"></path>
+            <path d="M378.690896,110.330967 L392.265765,184.762913 L416.083495,163.117317 L445.526745,181.113678 L401.295295,358.314685 L489.863957,413 L530.136924,377.313211 L464.329409,336.650049 L508.560859,159.449042 L456.117551,126.734295 L453.641626,125.330996 L479.218547,103 M344.080483,263.261309 L278.272967,222.598147 L238,258.284936 L329.044587,314.37355 L387.517859,296.853815 L401.033474,247.123208 M622.844415,230.952275 L571.6246,199.865682 L524.95891,213.048157 L512.695726,262.553908 L553.128197,248.642703 L582.571448,266.639064 L557.233437,289.666293 L658,283.031559 L648.182425,207.925045" id="交换" fill="#0559D6" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

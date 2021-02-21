@@ -1,0 +1,14 @@
+server:
+  port: 8090
+
+kubernetes:
+  api-url: https://172.17.162.235:6443
+  ssl:
+    path: classpath:ssl/
+    client-cert: apiserver-kubelet-client.crt
+    client-key: apiserver-kubelet-client.key
+
+  url: https://172.17.162.235:6443
+  client-crt: classpath:ssl/apiserver-kubelet-client.crt
+  client-key: classpath:ssl/apiserver-kubelet-client.key
+  ca-crt: classpath:ssl/ca.crt

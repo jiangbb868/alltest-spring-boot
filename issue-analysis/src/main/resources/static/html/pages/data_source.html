@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>数据源配置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+          charset="utf-8" />
+</head>
+<script src="js/common/page_init.js "></script>
+<script src="js/util/select_util.js "></script>
+<script>
+    $(function() {
+        var pageData = {
+            "title":"数据源配置",
+            "object":"数据源",
+            "addURL":"/isa/datasource/add",
+            "updateURL":"/isa/datasource/update",
+            "deleteURL":"/isa/datasource/delete",
+            "queryURL":"/isa/datasource/list",
+            "fields":[
+                {"name":"名称", "code":"name", "type":"text", "showInTable":true,"width":30},
+                {"name":"数据库类型", "code":"databaseType", "type":"select", "showInTable":true,"width":100, "selectType":"reference", "selectObject":"databaseType","selectField":"id"},
+                {"name":"地址", "code":"host", "type":"text","showInTable":true, "width":100},
+                {"name":"端口", "code":"port", "type":"text", "showInTable":false,"width":300},
+                {"name":"数据库名称", "code":"database", "type":"text","showInTable":true, "width":30},
+                {"name":"用户名", "code":"user", "type":"text", "showInTable":true,"width":30},
+                {"name":"密码", "code":"password", "type":"text", "showInTable":true,"width":30}
+            ]
+        };
+        var pageObject = new PageObject(pageData);
+        var bodyHtml = pageObject.initBody();
+        $('#content').html(bodyHtml);
+        pageObject.initTable().Init();
+        pageObject.initEvent().Init();
+    });
+</script>
+<body>
+<div id="content"></div>
+</body>
+</html>

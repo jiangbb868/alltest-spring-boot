@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>分析顺序配置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+          charset="utf-8" />
+</head>
+<script src="js/common/page_init.js "></script>
+<script src="js/util/select_util.js "></script>
+<script>
+    $(function() {
+        var pageData = {
+            "title":"分析顺序配置",
+            "object":"分析顺序",
+            "addURL":"/isa/sequence/add",
+            "updateURL":"/isa/sequence/update",
+            "deleteURL":"/isa/sequence/delete",
+            "queryURL":"/isa/sequence/list",
+            "fields":[
+                {"name":"分析流程", "code":"analysisFlow", "type":"text", "showInTable":true,"width":30},
+                {"name":"前驱节点", "code":"preNode", "type":"select", "showInTable":true,"width":100, "selectType":"reference", "selectObject":"databaseType","selectField":"id"},
+                {"name":"后续节点", "code":"nextNode", "type":"select", "showInTable":true,"width":100, "selectType":"reference", "selectObject":"databaseType","selectField":"id"}
+            ]
+        };
+        var pageObject = new PageObject(pageData);
+        var bodyHtml = pageObject.initBody();
+        $('#content').html(bodyHtml);
+        pageObject.initTable().Init();
+        pageObject.initEvent().Init();
+    });
+</script>
+<body>
+<div id="content"></div>
+</body>
+</html>

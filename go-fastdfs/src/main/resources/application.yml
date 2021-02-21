@@ -1,0 +1,8 @@
+server:
+  port: 8080
+spring:
+  thymeleaf:
+    prefix: classpath:/static/html/
+
+fastdfs:
+  url: http://172.17.162.235:8080/group1/upload
